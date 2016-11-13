@@ -4,6 +4,7 @@
 *@author Ben Delzer - 
 *@author Christian Hansen -
 *@author Brock -
+*@author Tim Dusek -
 */
 
 import java.util.*;
