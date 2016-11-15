@@ -139,6 +139,11 @@ public class Event
           return results;
      }
      
+     public int compareTo(Event inEvent)
+     {
+       return getPopularity() - inEvent.getPopularity();
+     }
+     
      public boolean runEvent() throws CaughtCheatingException, NotEnoughAthletesException
      {
           if (aths.size() < 3)
