@@ -1,3 +1,12 @@
+/**
+*
+*@author Moses Ilunga - (Will add what I did)
+*@author Ben Delzer - 
+*@author Christian Hansen -
+*@author Brock -
+*@author Tim Dusek -
+*/
+
 import java.util.*;
 public class Athlete
 {

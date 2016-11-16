@@ -1,3 +1,11 @@
+/**
+*
+*@author Moses Ilunga - (Will add what I did)
+*@author Ben Delzer - 
+*@author Christian Hansen -
+*@author Brock -
+*@author Tim Dusek -
+*/
 import java.util.*;
 public class Venue
 {
@@ -76,10 +84,16 @@ public class Venue
           return maxFans;
      }
      
+     /**
+      * addFan allows a fan to enter the Venue, but if the current number of fans already acceeds the limit of fan aloud in the Venue then an exception is thrown and the fan is from entering the Veneu.
+      * 
+      * @throws TooManyFansException
+      */
      public void addFan(Fan inFan) throws TooManyFansException
      {
           if (getCurrFans() >= maxFans)
           {
+            inFan.reject();
                throw new TooManyFansException();
           }
           else

@@ -1,3 +1,11 @@
+/**
+*
+*@author Moses Ilunga - (Will add what I did)
+*@author Ben Delzer - 
+*@author Christian Hansen -
+*@author Brock -
+*@author Tim Dusek -
+*/
 import java.util.*;
 public class Event
 {
@@ -129,6 +137,16 @@ public class Event
      public String getResults()
      {
           return results;
+     }
+     
+     /**
+      * compareTo takes in an Event and compare the popularity of the two Event's so see who has the higher popularity
+      * 
+      * @param Event inEvent is the Event being used to compare against this Event
+      */
+     public int compareTo(Event inEvent)
+     {
+       return getPopularity() - inEvent.getPopularity();
      }
      
      public boolean runEvent() throws CaughtCheatingException, NotEnoughAthletesException
