@@ -86,6 +86,11 @@ public class Athlete
           score = input;
      }
      
+     public void setEndorsements(int number)
+     {
+            endorsements= number;
+     }
+     
      public int getEndorsements()
      {
           return endorsements;
@@ -233,4 +238,22 @@ public class Athlete
           endorsements =0;
           System.out.println("\n\n\nHELLO EVERYONE!!!  IT TURNS OUT THAT #" +getNumber()+" IS A CHEATER!!!\n\n\n");
      }
+     
+    public void selectionSort(ArrayList<Athlete> inArr) // This specific selection sorts by endoresements 
+    {
+        for(int i = 0; i < inArr.size() - 1; i++)
+        {
+            int index = i;
+            for(int j = i+1; j < inArr.size(); j++)
+            {
+                if (inArr.get(i).getEndorsements() < inArr.get(index).getEndorsements())
+                {
+                    index = j;
+                }
+            }
+            int smaller = inArr.get(index).getEndorsements();
+            inArr.get(index).setEndorsements(inArr.get(i).getEndorsements());
+            inArr.get(i).setEndorsements(smaller);
+        }
+    }
 }
