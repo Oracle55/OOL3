@@ -30,6 +30,18 @@ public class Driver
 */
      public static void main(String[] args) throws FileNotFoundException
     {
+	ArrayList<athlete> rCheated = new ArrayList<athlete>();
+	ArrayList<athlete> rDidNotCheat = new ArrayList<athlete>();
+	ArrayList<athlete> rGold = new ArrayList<athlete>();
+	ArrayList<athlete> rSilver = new ArrayList<athlete>();
+	ArrayList<athlete> rBronze = new ArrayList<athlete>();
+	ArrayList<athlete> rOneMedal = new ArrayList<athlete>();
+	ArrayList<athlete> rNoMedals = new ArrayList<athlete>();
+	ArrayList<athlete> rAquatic = new ArrayList<athlete>();
+	ArrayList<athlete> rTrack = new ArrayList<athlete>();
+	ArrayList<athlete> rGym = new ArrayList<athlete>();
+	ArrayList<athlete> rOutdoor = new ArrayList<athlete>();
+	ArrayList<Athlete> masterRecurseList = new ArrayList<Athlete>();
          File athFile = new File("Athlete.txt");
          Scanner readAth = new Scanner(athFile);
          ArrayList<Athlete> ath = new ArrayList<Athlete>();
@@ -38,7 +50,7 @@ public class Driver
          String[] parts;
          
          while(readAth.hasNext())
-         {
+          {
               line = readAth.nextLine();
               parts = line.split(",");
               ath.add(new Athlete(Venue.VenueType.valueOf(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2]), Boolean.parseBoolean(parts[3])));
@@ -318,5 +330,51 @@ public class Driver
           return max;
      }
 
+    public ArrayList Recurse(ArrayList<Athlete> list)
+    {
 
+		int l=list.size();
+		
+		if (list[l].getCheater().equals(false))
+		    {
+			rCheated.add(list[l]);
+		    }
+		if (list[l].getCheater().equals(true))
+		    {
+			rDidNotCheat.add(list[l]);
+		    }
+		if (list[l].getMedals[0]>0)
+		    {
+			rGold.add(list[l]);
+		    }
+		if (list[l].getMedals[1]>0)
+		    {
+			rSilver.add(list[l]);
+		    }
+		if (list[l].getMedals[2]>0)
+		    {
+			rBronze.add(list[l]);
+		    }
+		if ((list[l].getMedals[0]>0) || (list[l].getMedals[1]>0) ||(list[l].getMedals[2]>0))
+		    {
+			rOneMedal.add(list[l]);
+		    }
+		if ((list[l].getMedals[0]==0) && (list[l].getMedals[1]==0) && (list[l].getMedals[2]==0))
+		    {
+			rNoMedals.add(list[l]);
+		    }
+		
+		//rAquatic
+		//rTrack
+		//rGym
+		//rOutdoor
+
+
+
+	    }
+	if(list.size()>0)
+	    {
+		recurse(list);
+
+    }
 }
