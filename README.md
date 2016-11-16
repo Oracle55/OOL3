@@ -8,15 +8,20 @@ Just to make a note here, make sure you guys clone the files into a new branch b
 
 ** Roles: **
 
-"/n"Moses - Manual Sorting Subsection
-"/n"Christian - Comparater Implementation subsection
-"/n"Ben - Major Event Update
-"/n"Tim - Recursion Selection
+Moses - Manual Sorting Subsection
+
+Christian - Comparater Implementation subsection
+
+Ben - Major Event Update
+
+Tim - Recursion Selection
 
 All - Analysis section
 
 **The current schedule is to get the coding done by the end of this week (week of November 14).
+
 **Week of November 21st we are doing the analysis and finishing up javadoc, TLDRR etc.
+
 **PLEASE JAVADOC ALL YOUR CHANGES BEFORE YOU SEND A PULL REQUEST AND TLDDR YOUR WORK AS YOU CODE.
 
 **DUE ON NOVEMBER 28!!!**
