@@ -139,6 +139,11 @@ public class Event
           return results;
      }
      
+     /**
+      * compareTo takes in an Event and compare the popularity of the two Event's so see who has the higher popularity
+      * 
+      * @param Event inEvent is the Event being used to compare against this Event
+      */
      public int compareTo(Event inEvent)
      {
        return getPopularity() - inEvent.getPopularity();
