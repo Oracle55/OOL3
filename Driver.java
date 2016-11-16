@@ -33,6 +33,7 @@ public class Driver
          Scanner readAth = new Scanner(athFile);
          ArrayList<Athlete> ath = new ArrayList<Athlete>();
          ArrayList<Athlete> cheats = new ArrayList<Athlete>();
+      
          String line;
          String[] parts;
          
@@ -147,6 +148,7 @@ public class Driver
                //Athletes?
                ArrayList<Athlete> pref = new ArrayList<Athlete>();
                ArrayList<Athlete> notpref = new ArrayList<Athlete>();
+               ArrayList<Athlete> endorse = new ArrayList<Athlete>();
                for(Athlete a : ath)
                {
                     if (a.mustRest() > 0)
@@ -160,7 +162,6 @@ public class Driver
                          else
                               notpref.add(a);
                     }
-                    
                }
                
                for(Athlete a : pref)
@@ -207,7 +208,6 @@ public class Driver
                {
                     System.err.println(ex.getMessage());
                }
-               
                //print
                System.out.println(e);
                
@@ -266,7 +266,7 @@ public class Driver
                }
           }
           
-//Cheaters
+          //Cheaters
           int free = 0;
           for (Athlete a : ath)
           {
@@ -316,6 +316,18 @@ public class Driver
           list.remove(max);
           return max;
      }
-
+     //Sorting
+     ArrayList<Athlete> endorse = new ArrayList<Athlete>();
+     public Athlete sort(ArrayList<Athlete> end, int inNum)
+     {
+         for(Athlete a : endorse){
+         a.selectionSort(endorse);
+         Collections.reverse(endorse);
+         for(int i = 0; i<10; i++)
+         {
+             System.out.println(a.selectionSort(endorse).get(i).getName() +" : " +a.selectionSort(endorse).get(i).getEndorsements());
+         }
+        }
+     }
 
 }
