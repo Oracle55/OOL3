@@ -8,10 +8,10 @@ Just to make a note here, make sure you guys clone the files into a new branch b
 
 ** Roles: **
 
-Moses - Manual Sorting Subsection
-Christian - Comparater Implementation subsection
-Ben - Major Event Update
-Tim - Recursion Selection
+"/n"Moses - Manual Sorting Subsection
+"/n"Christian - Comparater Implementation subsection
+"/n"Ben - Major Event Update
+"/n"Tim - Recursion Selection
 
 All - Analysis section
 
