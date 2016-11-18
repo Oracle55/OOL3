@@ -48,6 +48,7 @@ public class Driver
          ArrayList<Athlete> cheats = new ArrayList<Athlete>();
          String line;
          String[] parts;
+	  //make another arrayList for the recursion because things are taken away from the ath array list at some point.
          
          while(readAth.hasNext())
           {
