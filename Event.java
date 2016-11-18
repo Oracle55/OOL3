@@ -267,7 +267,12 @@ public class Event
         tmp.remove(f);
       count++;
       
-      while (tmp.size() < 3)
+      while (tmp.size() > 5)
+      {
+        tmp.remove(tmp.size()-1);
+      }
+      
+      while (tmp.size() < 5)
       {
         tmp.add(fainters.get(0));
       }
