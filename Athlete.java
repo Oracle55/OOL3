@@ -239,6 +239,9 @@ public class Athlete
           System.out.println("\n\n\nHELLO EVERYONE!!!  IT TURNS OUT THAT #" +getNumber()+" IS A CHEATER!!!\n\n\n");
      }
      
+   /**
+    *This method is used to sort athletes by their endorsements by using Selection sort
+    */
     public void selectionSort(ArrayList<Athlete> inArr) // This specific selection sorts by endoresements 
     {
         for(int i = 0; i < inArr.size() - 1; i++)
