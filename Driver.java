@@ -48,8 +48,8 @@ public class Driver
          ArrayList<Athlete> cheats = new ArrayList<Athlete>();
          String line;
          String[] parts;
-	  //make another arrayList for the recursion because things are taken away from the ath array list at some point.
-         
+	 ArrayList<Athlete> recurseUseList = new ArrayList<Athlete>();
+	     
          while(readAth.hasNext())
           {
               line = readAth.nextLine();
@@ -58,6 +58,7 @@ public class Driver
          }
          readAth.close();
          
+	 recurseUseList=
          File evFile = new File("Event.txt");
          Scanner readEv = new Scanner(evFile);
          ArrayList<Event> event = new ArrayList<Event>();
@@ -364,18 +365,25 @@ public class Driver
 		    {
 			rNoMedals.add(list[l]);
 		    }
-		
-		//rAquatic
-		//rTrack
-		//rGym
-		//rOutdoor
-
-
-
+	    	if (list[l].getFav().equals("Aquatic")
+		    {
+			rAquatic.add(list[l]);
+		    }
+		 if (list[l].getFav().equals("Track")
+		     {
+			rTrack.add(list[l]);     
+		     }
+		if (list[l].getFav().equals("Gym")
+		    {
+			rGym.add(list[l]);    
+		    }
+		if (list[l].getFav().equals("Outdoor")
+		    {
+			rOutdoor.add(list[l]);    
+		    }
 	    }
 	if(list.size()>0)
 	    {
 		recurse(list);
-
     }
 }
