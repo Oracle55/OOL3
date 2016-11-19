@@ -126,6 +126,7 @@ public class Driver
           {
             f.buyTicket();
             e.getLoc().addFan(f);
+            e.addFanCount();
           }
           catch (OutOfMoneyException ex)
           {
@@ -230,6 +231,7 @@ public class Driver
       try
       {
         e.runEvent();
+        System.out.println("derpEvent");
       }
       catch (CaughtCheatingException ex)
       {
@@ -248,7 +250,7 @@ public class Driver
           cheats.add(c);
         }
       }
-      
+      System.out.println("derpEventdone");
       //print
       System.out.println(e);
       
@@ -287,7 +289,7 @@ public class Driver
       if (a.getCheater())
         free++;
     }
-    System.out.println("\n\nCheaters caught: " + ((cheats.size() * 100) / (cheats.size() + free)) + "%");
+    //System.out.println("\n\nCheaters caught: " + ((cheats.size() * 100) / (cheats.size() + free)) + "%");
     System.out.println("\n\nNullified Medals: " + (((Athlete.getVacant() + Athlete.getNulls()) * 100)/(Athlete.getVacant() + Athlete.getNulls() + Athlete.getAwarded())) + "%");
     
     //Attendence
@@ -296,17 +298,45 @@ public class Driver
     int totalHap = 0;
     for(Fan f: fan)
     {
+      f.setHappiness();
+    }
+    for(Fan f: fan)
+    {
       totalHap = totalHap + f.getHappiness();
     }
     System.out.println("\n\nAverage Happiness of Fans: " + totalHap/fan.size());
     
-    System.out.println("\n\nTop 10 most Happiest Fan's\n");
-      ArrayList<Fan> tmpF = new ArrayList<Fan>();
-      tmpF.addAll(fan);
-      for (int y = 0; y < 10; y++)
-      {
-        System.out.println("\t" + (y+1) + ")\t" + max(tmpF) +"\n");
-      }
+    System.out.println("\n\nTop 10 Happiest Fan's\n");
+    ArrayList<Fan> tmpF = new ArrayList<Fan>();
+    tmpF.addAll(fan);
+    for (int y = 0; y < 10; y++)
+    {
+      System.out.println("\t" + (y+1) + ")\t" + max(tmpF) +"\n");
+    }
+    
+    System.out.println("\n\nTop 10 most Endorsed Athletes\n");
+    ArrayList<Athlete> tmpA = new ArrayList<Athlete>();
+    tmpA.addAll(ath);
+    for (int y = 0; y < 10; y++)
+    {
+      System.out.println("\t" + (y+1) + ")\t" + maxE(tmpA) +"\n");
+    }
+    
+    System.out.println("\n\nTop 10 most attended Events\n");
+    ArrayList<Event> tmpE = new ArrayList<Event>();
+    tmpE.addAll(event);
+    for (int y = 0; y < 10; y++)
+    {
+      System.out.println("\t" + (y+1) + ")\t" + maxC(tmpE) +"\n");
+    }
+    
+    System.out.println("\n\nTop 10 least attended Events\n");
+    ArrayList<Event> tmpM = new ArrayList<Event>();
+    tmpM.addAll(event);
+    for (int y = 0; y < 10; y++)
+    {
+      System.out.println("\t" + (y+1) + ")\t" + minC(tmpM) +"\n");
+    }
     //Final values
     System.out.println("\n\nThis Olympics was a success!!!\n\n");
     //Defining "most" as "0 or more"
@@ -345,17 +375,79 @@ public class Driver
     return max;
   }
   
+  /**
+   * this max is meant to find the happiest fan
+   * 
+   * @param List holds all the fans in the olympics
+   * @return max which is the happiest fan
+   */
   public static Fan max(ArrayList<Fan> list)
   {
     Fan max = list.get(0);
-      
-      for (Fan a : list)
-      {
-        if (max.getHappiness() < a.getHappiness())
-          max = a;
-      }
+    
+    for (Fan a : list)
+    {
+      if (max.getHappiness() < a.getHappiness())
+        max = a;
+    }
     list.remove(max);
     return max;
   }
   
+  /**
+   * maxE is meant to find the most endorsed Athlete
+   * 
+   * @param List holds all the athletes in the olympics
+   * @return max which is the most endorsed Athlete
+   */
+  public static Athlete maxE(ArrayList<Athlete> list)
+  {
+    Athlete max = list.get(0);
+    
+    for (Athlete a : list)
+    {
+      if (max.getEndorsements() < a.getEndorsements())
+        max = a;
+    }
+    list.remove(max);
+    return max;
+  }
+  
+  /**
+   * maxC is meant to find the most attended event
+   * 
+   * @param List holds all the events in the olympics
+   * @return max which is the most attended event
+   */
+  public static Event maxC(ArrayList<Event> list)
+  {
+    Event max = list.get(0);
+    
+    for (Event a : list)
+    {
+      if (max.getFanCount() < a.getFanCount())
+        max = a;
+    }
+    list.remove(max);
+    return max;
+  }
+  
+  /**
+   * minC is meant to find the least attended event
+   * 
+   * @param List holds all the events in the olympics
+   * @return max which is the least attended event
+   */
+   public static Event minC(ArrayList<Event> list)
+  {
+    Event max = list.get(0);
+    
+    for (Event a : list)
+    {
+      if (max.getFanCount() > a.getFanCount())
+        max = a;
+    }
+    list.remove(max);
+    return max;
+  }
 }
