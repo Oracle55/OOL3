@@ -21,6 +21,7 @@ import java.util.*;
  *  Venue.VenueType myType holds the enum value of the kind of Venue is needed to hold this Event
  *  int heat holds how many stages there are in this Event
  *  int count holds what stage this Event is currently on
+ *  int fanCount holds the running total of how many Fans have seen this Event
  */
 public class Event
 {
@@ -36,7 +37,25 @@ public class Event
   private Venue.VenueType myType = null;
   private int heat = 0;
   private int count = 1;
+  private int fanCount = 0;
   
+  /**
+   * getFanCount returns the running total of how many Fans have seen this event
+   * 
+   * @return fanCount holds the running total of how many Fans have seen this Event
+   */
+  public int getFanCount()
+  {
+    return fanCount;
+  }
+  /**
+   * addFanCount is a running total of how many fans
+   * 
+   */
+  public void addFanCount()
+  {
+    fanCount++;
+  }
   public Venue.VenueType getVenueType()
   {
     return myType;
@@ -46,13 +65,16 @@ public class Event
   {
     myType = input;
   }
-  
+  /**
+   * toString returns all the relivant information about event
+   * @String that holds all relivant information about event
+   */
   public String toString()
   {
     String athletes = "\n-----\n";
     for (Athlete a:aths)
       athletes = athletes + a + "\n-----\n";
-    return "Event "+getName()+":\n\tVenue:\n-----\n"+getLoc()+"\n-----\n\tVenue Type:"+getVenueType()+"\n\tPopuluarity:\t"+getPopularity()+"\n\tStatus: "+getStatus()+"\n\tResults:\t"+getResults()+"\n\tAtheletes:\n" + athletes;
+    return "Event "+getName()+":\n\tVenue:\n-----\n"+getLoc()+"\n-----\n\tVenue Type:"+getVenueType()+"\n\tPopuluarity:\t"+getPopularity()+"\n\tStatus: "+getStatus()+"\n\tResults:\t"+getResults()+ "\n\tAttendace:\t" + getFanCount() +  "\n\tAtheletes:\n" + athletes;
   }
   
   //Leaving status and results out of full parameter constructor since:
@@ -267,9 +289,29 @@ public class Event
         tmp.remove(f);
       count++;
       
-      while (tmp.size() < 3)
+      while (tmp.size() > 5)
       {
-        tmp.add(fainters.get(0));
+        tmp.remove(tmp.size()-1);
+        System.out.println("derpEvent1");
+      }
+      int exc=0;
+      int a = 0;
+      while (tmp.size() < 5 && exc==0)
+      {
+
+        if(fainters.size() > a)
+        {
+          System.out.println("derpEvent3");
+        tmp.add(fainters.get(a));
+        System.out.println(tmp.size());
+        }
+        else
+        {
+          exc=1;
+         System.out.println("this thing");
+        }
+        System.out.println("derpEvent2");
+        a++;
       }
     }
     while(count <= getHeat());
