@@ -30,7 +30,7 @@ public class Fan
   
   public String toString()
   {
-    return "This Fan:\n\t IDt" + getFanID() + "\n\tLikes:\t"+getFav()+"\n\tHas in Wallet:\t"+getWallet()+"\n\tHappiness rating:\t"+ getHappiness();
+    return "This Fan:\n\t ID\t" + getFanID() + "\n\tLikes:\t"+getFav()+"\n\tHas in Wallet:\t"+getWallet()+"\n\tHappiness rating:\t"+ getHappiness();
   }
   
   /**
