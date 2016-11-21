@@ -82,7 +82,28 @@ public class Driver
 	    }
 	readVe.close();
 
+	Athlete[] tempAth = ath.toArray(new Athlete[0]);
 
+	Event[] tempEv = event.toArray(new Event[0]);
+
+	Venue[] tempVen = venue.toArray(new Venue[0]);
+	
+	Arrays.sort(tempAth);
+	Arrays.sort(tempEv);
+	Arrays.sort(tempVen);
+
+	for(Athlete a : tempAth)
+	    {
+		System.out.println(a.toString());
+	    }
+	for(Event e : tempEv)
+	    {
+		System.out.println(e.toString());
+	    }
+	for(Venue v : tempVen)
+	    {
+		System.out.println(v.toString());
+	    }
 	
 	Random rng = new Random();
 	ArrayList<Fan> fan = new ArrayList<Fan>();
@@ -308,14 +329,22 @@ public class Driver
 	    }
 	System.out.println("\n\nAverage Happiness of Fans: " + totalHap/fan.size());
     
-	System.out.println("\n\nTop 10 Happiest Fan's\n");
+	System.out.println("\n\nTop 10 Happiest Fans\n");
 	ArrayList<Fan> tmpF = new ArrayList<Fan>();
 	tmpF.addAll(fan);
+	Collections.sort(tmpF);
 	for (int y = 0; y < 10; y++)
 	    {
-		System.out.println("\t" + (y+1) + ")\t" + max(tmpF) +"\n");
+		System.out.println("\t" + (y+1) + ")\t" + tmpF.get(y) +"\n");
 	    }
-    
+
+	System.out.println("\n\nTop 10 Unhappiest Fans\n");
+	Collections.reverse(tmpF);
+	for (int y = 0; y < 10; y++)
+	    {
+		System.out.println("\t" + (y+1) + ")\t" + tmpF.get(y) +"\n");
+	    }
+	
 	System.out.println("\n\nTop 10 most Endorsed Athletes\n");
 	ArrayList<Athlete> tmpA = new ArrayList<Athlete>();
 	tmpA.addAll(ath);
