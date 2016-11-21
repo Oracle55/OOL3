@@ -7,7 +7,7 @@
  *@author Tim Dusek -
  */
 import java.util.*;
-public class Fan
+public class Fan implements Comparable<Fan>
 {
     /**
      * @int wallet holds the amount of money this Fan owns
@@ -27,7 +27,28 @@ public class Fan
     private int rejected = 0;
     private static int ID = 0;
     private int fanID = 0;
-  
+
+    /**
+     *compareTo takes in a Fan and compares the happiness of the two Fans so see which is happier
+     *
+     * @param Fan other This is the fan being compared to the current one
+     */
+    public int compareTo(Fan other)
+    {
+	if(this.getHappiness() > other.getHappiness())
+	    {
+		return 1;
+	    }
+	else if(this.getHappiness() < other.getHappiness())
+	    {
+		return -1;
+	    }
+	else
+	    {
+		return 0;
+	    }
+    }
+    
     public String toString()
     {
 	return "This Fan:\n\t ID\t" + getFanID() + "\n\tLikes:\t"+getFav()+"\n\tHas in Wallet:\t"+getWallet()+"\n\tHappiness rating:\t"+ getHappiness();

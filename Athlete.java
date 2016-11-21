@@ -2,7 +2,7 @@
  *
  *@author Moses Ilunga - (Will add what I did)
  *@author Ben Delzer - 
- *@author Christian Hansen -
+ *@author Christian Hansen - Comparable
  *@author Brock -
  *@author Tim Dusek -
  */
@@ -10,30 +10,267 @@
 import java.util.*;
 public class Athlete implements Comparable<Athlete>
 {
-  private static int nullified = 0;
-  private static int vacated = 0;
-  private static int awarded = 0;
-  private static int count = 0;
-  private int number = 1;
-  //I'm using an enum as the type prefered venue.  You don't have to.  You can use a String.
-  //The benifit of enum is that only valid Strings will be allowed.
-  //So I don't have to check for:
-  //--Bad inputs
-  //--Different Capitalizations
-  private Venue.VenueType fav;
-  private int stam = 100;
-  private int skill = 5;
-  private boolean cheater = false;
-  private int endorsements = 0;
-  private int rest = 0;
-  //Using an array since I want exactly 3 boxes for medals
-  //0 -> Gold
-  //1 -> Silver
-  //2 -> Bronze
-  private int[] medals = { 0, 0, 0};
-  private int score = 0;
+    private static int nullified = 0;
+    private static int vacated = 0;
+    private static int awarded = 0;
+    private static int count = 0;
+    private int number = 1;
+    //I'm using an enum as the type prefered venue.  You don't have to.  You can use a String.
+    //The benifit of enum is that only valid Strings will be allowed.
+    //So I don't have to check for:
+    //--Bad inputs
+    //--Different Capitalizations
+    private Venue.VenueType fav;
+    private int stam = 100;
+    private int skill = 5;
+    private boolean cheater = false;
+    private int endorsements = 0;
+    private int rest = 0;
+    //Using an array since I want exactly 3 boxes for medals
+    //0 -> Gold
+    //1 -> Silver
+    //2 -> Bronze
+    private int[] medals = { 0, 0, 0};
+    private int score = 0;
 
+    /**
+     *This comparator will compare the current athlete's gold medal count to the input athlete's
+     */
+    public static Comparator<Athlete> GoldComparator = new Comparator<Athlete>()
+    {
+	public int compare(Athlete ath1, Athlete ath2)
+	{
+	    if(ath1.getMedals()[0] > ath2.getMedals()[0])
+		{
+		    return 1;
+		}
+	    else if(ath1.getMedals()[0] < ath2.getMedals()[0])
+		{
+		    return -1;
+		}
+	    else
+		{
+		    if(ath1.getSkill() > ath2.getSkill())
+			{
+			    return 1;
+			}
+		    else if(ath1.getSkill() < ath2.getSkill())
+			{
+			    return -1;
+			}
+		    else
+			{
+			    if(ath1.getEndorsements() > ath2.getEndorsements())
+				{
+				    return 1;
+				}
+			    else if(ath1.getEndorsements() < ath2.getEndorsements())
+				{
+				    return -1;
+				}
+			    else
+				{
+				    if(ath1.getMedals()[0] + ath1.getMedals()[1] + ath1.getMedals()[2] > ath2.getMedals()[0] + ath2.getMedals()[1] + ath2.getMedals()[2])
+					{
+					    return 1;
+					}
+				    else if(ath1.getMedals()[0] + ath1.getMedals()[1] + ath1.getMedals()[2] < ath2.getMedals()[0] + ath2.getMedals()[1] + ath2.getMedals()[2])
+					{
+					    return -1;
+					}
+				    else
+					{
+					    if(ath1.getNumber() > ath2.getNumber())
+						{
+						    return 1;
+						}
+					    else
+						{
+						    return -1;
+						}
+					}
+				}
+			}
+		}
+	}
+    };
 
+    /**
+     *This comparator will compare the current athlete's silver medal count to the input athlete's
+     */
+	public static Comparator<Athlete> SilverComparator = new Comparator<Athlete>()
+    {
+	public int compare(Athlete ath1, Athlete ath2)
+	{
+	    if(ath1.getMedals()[1] > ath2.getMedals()[1])
+		{
+		    return 1;
+		}
+	    else if(ath1.getMedals()[1] < ath2.getMedals()[1])
+		{
+		    return -1;
+		}
+	    else
+		{
+		    if(ath1.getSkill() > ath2.getSkill())
+			{
+			    return 1;
+			}
+		    else if(ath1.getSkill() < ath2.getSkill())
+			{
+			    return -1;
+			}
+		    else
+			{
+			    if(ath1.getEndorsements() > ath2.getEndorsements())
+				{
+				    return 1;
+				}
+			    else if(ath1.getEndorsements() < ath2.getEndorsements())
+				{
+				    return -1;
+				}
+			    else
+				{
+				    if(ath1.getMedals()[0] + ath1.getMedals()[1] + ath1.getMedals()[2] > ath2.getMedals()[0] + ath2.getMedals()[1] + ath2.getMedals()[2])
+					{
+					    return 1;
+					}
+				    else if(ath1.getMedals()[0] + ath1.getMedals()[1] + ath1.getMedals()[2] < ath2.getMedals()[0] + ath2.getMedals()[1] + ath2.getMedals()[2])
+					{
+					    return -1;
+					}
+				    else
+					{
+					    if(ath1.getNumber() > ath2.getNumber())
+						{
+						    return 1;
+						}
+					    else
+						{
+						    return -1;
+						}
+					}
+				}
+			}
+		}
+	}
+    };
+
+    /**
+     *This comparator will compare the current athlete's bronze medal count to the input athlete's
+     */
+	    public static Comparator<Athlete> BronzeComparator = new Comparator<Athlete>()
+    {
+	public int compare(Athlete ath1, Athlete ath2)
+	{
+	    if(ath1.getMedals()[2] > ath2.getMedals()[2])
+		{
+		    return 1;
+		}
+	    else if(ath1.getMedals()[2] < ath2.getMedals()[2])
+		{
+		    return -1;
+		}
+	    else
+		{
+		    if(ath1.getSkill() > ath2.getSkill())
+			{
+			    return 1;
+			}
+		    else if(ath1.getSkill() < ath2.getSkill())
+			{
+			    return -1;
+			}
+		    else
+			{
+			    if(ath1.getEndorsements() > ath2.getEndorsements())
+				{
+				    return 1;
+				}
+			    else if(ath1.getEndorsements() < ath2.getEndorsements())
+				{
+				    return -1;
+				}
+			    else
+				{
+				    if(ath1.getMedals()[0] + ath1.getMedals()[1] + ath1.getMedals()[2] > ath2.getMedals()[0] + ath2.getMedals()[1] + ath2.getMedals()[2])
+					{
+					    return 1;
+					}
+				    else if(ath1.getMedals()[0] + ath1.getMedals()[1] + ath1.getMedals()[2] < ath2.getMedals()[0] + ath2.getMedals()[1] + ath2.getMedals()[2])
+					{
+					    return -1;
+					}
+				    else
+					{
+					    if(ath1.getNumber() > ath2.getNumber())
+						{
+						    return 1;
+						}
+					    else
+						{
+						    return -1;
+						}
+					}
+				}
+			}
+		}
+	}
+    };
+
+    /**
+     *This comparator will compare the current athlete's total medal count to the input athlete's
+     */
+		public static Comparator<Athlete> TotalMedalComparator = new Comparator<Athlete>()
+    {
+	public int compare(Athlete ath1, Athlete ath2)
+	{
+	    if(ath1.getMedals()[0] + ath1.getMedals()[1] + ath1.getMedals()[2] > ath2.getMedals()[0] + ath2.getMedals()[1] + ath2.getMedals()[2])
+		{
+		    return 1;
+		}
+	    else if(ath1.getMedals()[0] + ath1.getMedals()[1] + ath1.getMedals()[2] < ath2.getMedals()[0] + ath2.getMedals()[1] + ath2.getMedals()[2])
+		{
+		    return -1;
+		}
+	    else
+		{
+		    if(ath1.getSkill() > ath2.getSkill())
+			{
+			    return 1;
+			}
+		    else if(ath1.getSkill() < ath2.getSkill())
+			{
+			    return -1;
+			}
+		    else
+			{
+			    if(ath1.getEndorsements() > ath2.getEndorsements())
+				{
+				    return 1;
+				}
+			    else if(ath1.getEndorsements() < ath2.getEndorsements())
+				{
+				    return -1;
+				}
+			    else
+				{
+				    if(ath1.getNumber() > ath2.getNumber())
+					{
+					    return 1;
+					}
+				    else
+					{
+					    return -1;
+					}
+				}
+			}
+		}
+	}
+    };
+
+    
     /**
      *compareTo takes in an Athlete and compares the  of the two Athletes so see who has the higher 
      *
