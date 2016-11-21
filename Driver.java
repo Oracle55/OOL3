@@ -4,6 +4,7 @@
  *@author Ben Delzer - 
  *@author Christian Hansen - Comparator
  *@author Brock -
+ *@author Tim - Recursion
  */
 import java.io.*;
 import java.util.*;
@@ -27,6 +28,17 @@ public class Driver
       return output;
       }
     */
+	static ArrayList<Athlete> rCheated = new ArrayList<Athlete>();
+        static ArrayList<Athlete> rDidNotCheat = new ArrayList<Athlete>();
+        static ArrayList<Athlete> rGold = new ArrayList<Athlete>();
+        static ArrayList<Athlete> rSilver = new ArrayList<Athlete>();
+        static ArrayList<Athlete> rBronze = new ArrayList<Athlete>();
+        static ArrayList<Athlete> rOneMedal = new ArrayList<Athlete>();
+        static ArrayList<Athlete> rNoMedals = new ArrayList<Athlete>();
+        static ArrayList<Athlete> rAquatic = new ArrayList<Athlete>();
+        static ArrayList<Athlete> rTrack = new ArrayList<Athlete>();
+        static ArrayList<Athlete> rGym = new ArrayList<Athlete>();
+        static ArrayList<Athlete> rOutdoor = new ArrayList<Athlete>();
   
     public static void main(String[] args) throws FileNotFoundException
     {
@@ -291,6 +303,7 @@ public class Driver
 			f = e.getLoc().removeFan();
 		    }
 	    }
+	    Recurse(ath);
     
 	//Summary
 	String[] metal = {"GOLD","SILVER","BRONZE","TOTAL"};
@@ -481,4 +494,116 @@ public class Driver
 	list.remove(max);
 	return max;
     }
+	public static void Recurse(ArrayList<Athlete> list)
+    {
+
+        int l=list.size();
+
+        if (list.get(l).getCheater()==(false))
+        {
+            rCheated.add(list.get(l));
+        }
+        if (list.get(l).getCheater()==(true))
+        {
+            rDidNotCheat.add(list.get(l));
+        }
+        if (list.get(l).getMedals()[0]>0)
+        {
+            rGold.add(list.get(l));
+        }
+        if (list.get(l).getMedals()[1]>0)
+        {
+            rSilver.add(list.get(l));
+        }
+        if (list.get(l).getMedals()[2]>0)
+        {
+            rBronze.add(list.get(l));
+        }
+        if ((list.get(l).getMedals()[0]>0) || (list.get(l).getMedals()[1]>0) ||(list.get(l).getMedals()[2]>0))
+        {
+            rOneMedal.add(list.get(l));
+        }
+        if ((list.get(l).getMedals()[0]==0) && (list.get(l).getMedals()[1]==0) && (list.get(l).getMedals()[2]==0))
+        {
+            rNoMedals.add(list.get(l));
+        }
+        if (list.get(l).getFav().equals("Aquatic"))
+        {
+            rAquatic.add(list.get(l));
+        }
+        if (list.get(l).getFav().equals("Track"))
+        {
+            rTrack.add(list.get(l));
+        }
+        if (list.get(l).getFav().equals("Gym"))
+        {
+            rGym.add(list.get(l));    
+        }
+        if (list.get(l).getFav().equals("Outdoor"))
+        {
+            rOutdoor.add(list.get(l));
+        }
+        if(list.size()>0)
+        {
+        Recurse(list);
+        }
+        if(list.size()==0)
+        {
+         System.out.println("Athletes willing to cheat:");
+         for(int i = 0; i < rCheated.size(); i++) 
+            {   
+            System.out.println(rCheated.get(l));
+        }
+         System.out.println("Athletes who did not cheat:");
+         for(int i = 0; i < rDidNotCheat.size(); i++) 
+            {   
+            System.out.println(rDidNotCheat.get(l));
+        } 
+        System.out.println("Athletes who won gold:");
+         for(int i = 0; i < rGold.size(); i++) 
+            {   
+            System.out.println(rGold.get(l));
+        }
+        System.out.println("Athletes who won silver:");
+         for(int i = 0; i < rSilver.size(); i++) 
+            {   
+            System.out.println(rSilver.get(l));
+        }
+        System.out.println("Athletes who won bronze:");
+         for(int i = 0; i < rBronze.size(); i++) 
+            {   
+            System.out.println(rBronze.get(l));
+        }
+        System.out.println("Athletes who won at least 1 medal:");
+         for(int i = 0; i < rOneMedal.size(); i++) 
+            {   
+            System.out.println(rOneMedal.get(l));
+        }
+        System.out.println("Athletes who won 0 medals:");
+         for(int i = 0; i < rNoMedals.size(); i++) 
+            {   
+            System.out.println(rNoMedals.get(l));
+        }
+        System.out.println("Athletes who prefer aquatic:");
+         for(int i = 0; i < rAquatic.size(); i++) 
+            {   
+            System.out.println(rAquatic.get(l));
+        }
+        System.out.println("Athletes who prefer track");
+         for(int i = 0; i < rTrack.size(); i++) 
+            {   
+            System.out.println(rTrack.get(l));
+        }
+        System.out.println("Athletes who prefer gym:");
+         for(int i = 0; i < rGym.size(); i++) 
+            {   
+            System.out.println(rGym.get(l));
+        }
+        System.out.println("Athletes who prefer outdoor:");
+         for(int i = 0; i < rOutdoor.size(); i++) 
+            {   
+            System.out.println(rOutdoor.get(l));
+        }
+	}
+	}
 }
