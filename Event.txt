@@ -1,0 +1,15 @@
+Shotput,.67,OUTDOOR
+Disc,.45,OUTDOOR
+Dash,.34,TRACK
+Swimming,.78,AQUATIC
+DeadLift,.25,GYM
+Shotput,.67,OUTDOOR
+Disc,.45,OUTDOOR
+Dash,.34,TRACK
+Swimming,.78,AQUATIC
+DeadLift,.25,GYM
+Shotput,.67,OUTDOOR
+Disc,.45,OUTDOOR
+Dash,.34,TRACK
+Swimming,.78,AQUATIC
+DeadLift,.25,GYM
