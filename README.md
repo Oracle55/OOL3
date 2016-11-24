@@ -18,9 +18,11 @@ Tim - Recursion Selection
 
 All - Analysis section
 
-**The current schedule is to get the coding done by the end of this week (week of November 14).
+**The current schedule is to get the coding done by the end of this week (week of November 14).**
 
-**Week of November 21st we are doing the analysis and finishing up javadoc, TLDRR etc.
+
+**Week of November 21st we are doing the analysis and finishing up javadoc, TLDRR etc.**
+
 
 **PLEASE JAVADOC ALL YOUR CHANGES BEFORE YOU SEND A PULL REQUEST AND TLDDR YOUR WORK AS YOU CODE.
 
