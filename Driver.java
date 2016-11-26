@@ -503,4 +503,27 @@ public class Driver
         }
          return inArr;
     }
+     
+     public static ArrayList<Event> BubbleSort(ArrayList<Event> inArr) //Event sorting by fan attendance
+     {
+     int i;
+     boolean flagger = true;   // set flag to true to begin first pass
+     int temp;   //holding variable
+
+     while (flagger)
+     {
+            flagger= false;    //set flag to false awaiting a possible swap
+            for(i=0;  i < inArr.size()-1;  i++ )
+            {
+              if (inArr.get(i).getFanCount() < inArr.get(i+1).getFanCount())   // change to > for ascending sort
+                   {
+                temp = inArr.get(i).getFanCount();                //swap elements
+                           inArr.get(i) = inArr.get(i+1);
+                           inArr.get(i+1) = temp;
+                          flag = true;              //shows a swap occurred  
+                  } 
+            } 
+      }
+     return inArr;
+} 
 }
