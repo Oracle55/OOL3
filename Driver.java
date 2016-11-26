@@ -358,6 +358,7 @@ public class Driver
  System.out.println("\n\nTop 10 most attended Events\n");
  ArrayList<Event> tmpE = new ArrayList<Event>();
  tmpE.addAll(event);
+ BubbleSort(tmpE);
  for (int y = 0; y < 10; y++)
      {
   System.out.println("\t" + (y+1) + ")\t" + maxC(tmpE) +"\n");
@@ -366,6 +367,8 @@ public class Driver
  System.out.println("\n\nTop 10 least attended Events\n");
  ArrayList<Event> tmpM = new ArrayList<Event>();
  tmpM.addAll(event);
+ BubbleSort(tmpM);
+ Collections.reverse(tmpM);
  for (int y = 0; y < 10; y++)
      {
   System.out.println("\t" + (y+1) + ")\t" + minC(tmpM) +"\n");
@@ -484,7 +487,7 @@ public class Driver
  return max;
     }
     
-     public ArrayList<Athlete> selectionSort(ArrayList<Athlete> inArr) // This specific selection sorts by endoresements 
+     public static ArrayList<Athlete> selectionSort(ArrayList<Athlete> inArr) // This specific selection sorts by endoresements 
     {
         for(int i = 0; i < inArr.size() - 1; i++)
         {
@@ -504,7 +507,7 @@ public class Driver
          return inArr;
     }
      
-     public static ArrayList<Event> BubbleSort(ArrayList<Event> inArr) //Event sorting by fan attendance
+     /*public static ArrayList<Event> BubbleSort(ArrayList<Event> inArr) //Event sorting by fan attendance
      {
      int i;
      boolean flagger = true;   // set flag to true to begin first pass
@@ -520,10 +523,31 @@ public class Driver
                 temp = inArr.get(i).getFanCount();                //swap elements
                            inArr.get(i) = inArr.get(i+1);
                            inArr.get(i+1) = temp;
-                          flag = true;              //shows a swap occurred  
+                          flagger = true;              //shows a swap occurred  
                   } 
             } 
       }
      return inArr;
+} */
+     public static void BubbleSort( ArrayList<Event> num )
+     {
+     int j;
+     boolean flag = true;   // set flag to true to begin first pass
+     int temp;   //holding variable
+
+     while ( flag )
+     {
+            flag= false;    //set flag to false awaiting a possible swap
+            for( j=0;  j < num.size()-1;  j++ )
+            {
+              if (num.get(j).getFanCount() < num.get(j+1).getFanCount())   // change to > for ascending sort
+                   {
+                           temp = num.get(j).getFanCount();                //swap elements
+                           temp = num.get(j+1).getFanCount();
+                           temp = num.get(j).getFanCount();
+                          flag = true;              //shows a swap occurred  
+                  } 
+            } 
+      } 
 } 
 }
