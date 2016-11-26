@@ -1,9 +1,8 @@
 /**
  *
- *@author Moses Ilunga - (Will add what I did)
+ *@author Moses Ilunga - Manual Sorting
  *@author Ben Delzer - 
  *@author Christian Hansen -
- *@author Brock -
  *@author Tim Dusek -
  */
 import java.util.*;
