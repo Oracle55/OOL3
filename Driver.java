@@ -519,23 +519,23 @@ public class Driver
       *@param  num is an arraylist of events
       *
       */
-     public static void BubbleSort( ArrayList<Event> num )
+     public static void BubbleSort(ArrayList<Event> num)
      {
      int j;
-     boolean flag = true;   // set flag to true to begin first pass
-     int temp;   //holding variable
+     boolean flag = true;   
+     int temp; 
 
-     while ( flag )
+     while (flag)
      {
-            flag= false;    //set flag to false awaiting a possible swap
-            for( j=0;  j < num.size()-1;  j++ )
+            flag= false;   
+            for( j=0;  j < num.size()-1;  j++)
             {
-              if (num.get(j).getFanCount() < num.get(j+1).getFanCount())   // change to > for ascending sort
+              if (num.get(j).getFanCount() < num.get(j+1).getFanCount())
                    {
-                           temp = num.get(j).getFanCount();                //swap elements
+                           temp = num.get(j).getFanCount();
                            temp = num.get(j+1).getFanCount();
                            temp = num.get(j).getFanCount();
-                          flag = true;              //shows a swap occurred  
+                          flag = true;       
                   } 
             } 
       } 
