@@ -1,9 +1,9 @@
 /**
  *
- *@author Moses Ilunga - (Will add what I did)
+ *@author Moses Ilunga - Manual Sorting of athlete endorsements and event turn out
  *@author Ben Delzer - 
  *@author Christian Hansen - Comparator
- *@author Brock -
+ *@author Tim Dusek - 
  */
 import java.io.*;
 import java.util.*;
