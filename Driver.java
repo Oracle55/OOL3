@@ -345,9 +345,11 @@ public class Driver
   System.out.println("\t" + (y+1) + ")\t" + tmpF.get(y) +"\n");
      }
  
- System.out.println("\n\nTop 10 most Endorsed Athletes\n");
+ System.out.println("\n\nTop 10 most Endorsed Athletes\n");  //Selection Sorting the Ath
  ArrayList<Athlete> tmpA = new ArrayList<Athlete>();
  tmpA.addAll(ath);
+ selectionSort(tmpA);
+ Collections.reverse(tmpA);
  for (int y = 0; y < 10; y++)
      {
   System.out.println("\t" + (y+1) + ")\t" + maxE(tmpA) +"\n");
@@ -480,5 +482,25 @@ public class Driver
      }
  list.remove(max);
  return max;
+    }
+    
+     public ArrayList<Athlete> selectionSort(ArrayList<Athlete> inArr) // This specific selection sorts by endoresements 
+    {
+        for(int i = 0; i < inArr.size() - 1; i++)
+        {
+            int index = i;
+            for(int j = i+1; j < inArr.size(); j++)
+            {
+                if (inArr.get(i).getEndorsements() < inArr.get(index).getEndorsements())
+                {
+                    index = j;
+                }
+            }
+            int smaller = inArr.get(index).getEndorsements();
+            inArr.get(index).addEndorsements(inArr.get(i).getEndorsements());
+            inArr.get(i).addEndorsements(smaller);
+           
+        }
+         return inArr;
     }
 }
