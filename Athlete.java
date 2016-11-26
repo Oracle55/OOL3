@@ -1,9 +1,8 @@
 /**
  *
- *@author Moses Ilunga - (Will add what I did)
+ *@author Moses Ilunga - Manual Sorting of Athlete Endorsements
  *@author Ben Delzer - 
  *@author Christian Hansen - Comparable
- *@author Brock -
  *@author Tim Dusek -
  */
 
