@@ -487,6 +487,13 @@ public class Driver
  return max;
     }
     
+    /**
+     * selectionSort is meant to sort athletes from their endorsements
+     * 
+     * @param inArr holds ArrayList of athletes
+     * @return inArr returns the sorted Athletes with their endorsements in ascending order
+     */
+    
      public static ArrayList<Athlete> selectionSort(ArrayList<Athlete> inArr) // This specific selection sorts by endoresements 
     {
         for(int i = 0; i < inArr.size() - 1; i++)
@@ -507,28 +514,11 @@ public class Driver
          return inArr;
     }
      
-     /*public static ArrayList<Event> BubbleSort(ArrayList<Event> inArr) //Event sorting by fan attendance
-     {
-     int i;
-     boolean flagger = true;   // set flag to true to begin first pass
-     int temp;   //holding variable
-
-     while (flagger)
-     {
-            flagger= false;    //set flag to false awaiting a possible swap
-            for(i=0;  i < inArr.size()-1;  i++ )
-            {
-              if (inArr.get(i).getFanCount() < inArr.get(i+1).getFanCount())   // change to > for ascending sort
-                   {
-                temp = inArr.get(i).getFanCount();                //swap elements
-                           inArr.get(i) = inArr.get(i+1);
-                           inArr.get(i+1) = temp;
-                          flagger = true;              //shows a swap occurred  
-                  } 
-            } 
-      }
-     return inArr;
-} */
+     /**
+      *BubbleSort is meant to sort an array list. This specific one sorts it from greatest to smallest
+      *@param  num is an arraylist of events
+      *
+      */
      public static void BubbleSort( ArrayList<Event> num )
      {
      int j;
