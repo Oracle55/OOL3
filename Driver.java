@@ -486,7 +486,6 @@ public class Driver
  list.remove(max);
  return max;
     }
-    
     /**
      * selectionSort is meant to sort athletes from their endorsements
      * 
@@ -497,24 +496,22 @@ public class Driver
      public static ArrayList<Athlete> selectionSort(ArrayList<Athlete> inArr) // This specific selection sorts by endoresements 
     {
          int minIndex;
-         int smaller;
+         Athlete smaller = inArr.get(0);
          
         for(int i = 0; i < inArr.size() - 1; i++)
         {
-            int minIndex = i;
+            minIndex = i;
             for(int j = i+1; j < inArr.size(); j++)
             {
-                if (inArr.get(i).getEndorsements() < inArr.get(index).getEndorsements())
+                if (inArr.get(i).getEndorsements() < inArr.get(minIndex).getEndorsements())
                 {
                     minIndex = j;
                 }
             }
             
-            if(minIndex != j)
+            if(minIndex != i)
             {
-                smaller = inArr.get(minIndex); //Don't want to swap the endorsements, we want to swap the athletes in the list
-                inArr.get(minIndex) = inArr.get(i);
-                inArr.get(i) = smaller;
+		        Collections.swap(inArr, minIndex, i); //Collections has a swap method, I was trying to do too much instead of using something existing
             }
            
         }
@@ -536,9 +533,7 @@ public class Driver
             {
                 if (num.get(j-1).getFanCount() > num.get(j).getFanCount()) //If the previous value is larger than the current, swap previous and current
                 {
-                    temp = num.get(j-1); //Set temp to the previous value
-                    num.get(j-1) = num.get(j); //Swap the current and previous values
-                    num.get(j) = temp; //Set the current value to temp
+	        	    Collections.swap(num, j-1, j); //Same as above, I was doing too much extra work with swapping, when Collections has a method for it
                 }
             }
         } 
