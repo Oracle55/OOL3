@@ -1,0 +1,2 @@
+TLDDR Tim Dusek
+I worked on the recursion methods at the end of the driver for my portion of this project. I started by taking the Athlete list (ath) and going through the last piece of the list and checking to see if it met certain criteria. If it met that criteria it was added to another list which would be printed after the original athlete list hit 0 in length. After it went through the end of the list, it would remove the last athlete and call itself to repeat all over again. When the list hit 0 in length it would trigger an if statement and print all of the lists out.
