@@ -481,4 +481,57 @@ public class Driver
 	list.remove(max);
 	return max;
     }
+	
+	 /**
+     * selectionSort is meant to sort athletes from their endorsements
+     * 
+     * @param inArr holds ArrayList of athletes
+     * @return inArr returns the sorted Athletes with their endorsements in ascending order
+     */
+    
+     public static ArrayList<Athlete> selectionSort(ArrayList<Athlete> inArr) // This specific selection sorts by endoresements 
+    {
+         int minIndex;
+         Athlete smaller = inArr.get(0);
+         
+        for(int i = 0; i < inArr.size() - 1; i++)
+        {
+            minIndex = i;
+            for(int j = i+1; j < inArr.size(); j++)
+            {
+                if (inArr.get(i).getEndorsements() < inArr.get(minIndex).getEndorsements())
+                {
+                    minIndex = j;
+                }
+            }
+            
+            if(minIndex != i)
+            {
+          Collections.swap(inArr, minIndex, i); //Collections has a swap method, I was trying to do too much instead of using something existing
+            }
+           
+        }
+         return inArr;
+    }
+     
+     /**
+      *BubbleSort is meant to sort an array list. This specific one sorts it from greatest to smallest
+      *@param  num is an arraylist of events
+      *
+      */
+     public static void BubbleSort(ArrayList<Event> num)
+     {
+     Event temp = num.get(0); //Set the tmep to an arbitrary value
+  
+        for(int i = 0; i < num.size();  i++) //Iterate through the entire array of events
+        {
+            for(int j = 1; j < num.size() - i; j++) //We now know the final value is in the correct spot, so we don't need to check it, that's why we use num.size()-1
+            {
+                if (num.get(j-1).getFanCount() > num.get(j).getFanCount()) //If the previous value is larger than the current, swap previous and current
+                {
+              Collections.swap(num, j-1, j); //Same as above, I was doing too much extra work with swapping, when Collections has a method for it
+                }
+            }
+        } 
+     }
 }
