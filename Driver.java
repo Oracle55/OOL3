@@ -348,6 +348,8 @@ public class Driver
 	System.out.println("\n\nTop 10 most Endorsed Athletes\n");
 	ArrayList<Athlete> tmpA = new ArrayList<Athlete>();
 	tmpA.addAll(ath);
+	selectionSort(tmpA);
+ 	Collections.reverse(tmpA);
 	for (int y = 0; y < 10; y++)
 	    {
 		System.out.println("\t" + (y+1) + ")\t" + maxE(tmpA) +"\n");
@@ -356,6 +358,7 @@ public class Driver
 	System.out.println("\n\nTop 10 most attended Events\n");
 	ArrayList<Event> tmpE = new ArrayList<Event>();
 	tmpE.addAll(event);
+	BubbleSort(tmpE);
 	for (int y = 0; y < 10; y++)
 	    {
 		System.out.println("\t" + (y+1) + ")\t" + maxC(tmpE) +"\n");
