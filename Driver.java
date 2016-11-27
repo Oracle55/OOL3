@@ -496,19 +496,26 @@ public class Driver
     
      public static ArrayList<Athlete> selectionSort(ArrayList<Athlete> inArr) // This specific selection sorts by endoresements 
     {
+         int minIndex;
+         int smaller;
+         
         for(int i = 0; i < inArr.size() - 1; i++)
         {
-            int index = i;
+            int minIndex = i;
             for(int j = i+1; j < inArr.size(); j++)
             {
                 if (inArr.get(i).getEndorsements() < inArr.get(index).getEndorsements())
                 {
-                    index = j;
+                    minIndex = j;
                 }
             }
-            int smaller = inArr.get(index).getEndorsements();
-            inArr.get(index).addEndorsements(inArr.get(i).getEndorsements());
-            inArr.get(i).addEndorsements(smaller);
+            
+            if(minIndex != j)
+            {
+                smaller = inArr.get(minIndex); //Don't want to swap the endorsements, we want to swap the athletes in the list
+                inArr.get(minIndex) = inArr.get(i);
+                inArr.get(i) = smaller;
+            }
            
         }
          return inArr;
@@ -521,23 +528,19 @@ public class Driver
       */
      public static void BubbleSort(ArrayList<Event> num)
      {
-     int j;
-     boolean flag = true;   
-     int temp; 
-
-     while (flag)
-     {
-            flag= false;   
-            for( j=0;  j < num.size()-1;  j++)
+     Event temp = num.get(0); //Set the tmep to an arbitrary value
+  
+        for(int i = 0; i < num.size();  i++) //Iterate through the entire array of events
+        {
+            for(int j = 1; j < num.size() - i; j++) //We now know the final value is in the correct spot, so we don't need to check it, that's why we use num.size()-1
             {
-              if (num.get(j).getFanCount() < num.get(j+1).getFanCount())
-                   {
-                           temp = num.get(j).getFanCount();
-                           temp = num.get(j+1).getFanCount();
-                           temp = num.get(j).getFanCount();
-                          flag = true;       
-                  } 
-            } 
-      } 
-} 
+                if (num.get(j-1).getFanCount() > num.get(j).getFanCount()) //If the previous value is larger than the current, swap previous and current
+                {
+                    temp = num.get(j-1); //Set temp to the previous value
+                    num.get(j-1) = num.get(j); //Swap the current and previous values
+                    num.get(j) = temp; //Set the current value to temp
+                }
+            }
+        } 
+     } 
 }
