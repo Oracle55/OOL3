@@ -30,7 +30,7 @@ public class Fan implements Comparable<Fan>
     /**
      *compareTo takes in a Fan and compares the happiness of the two Fans so see which is happier
      *
-     * @param Fan other This is the fan being compared to the current one
+     *@param other This is the fan being compared to the current one
      */
     public int compareTo(Fan other)
     {
@@ -47,15 +47,21 @@ public class Fan implements Comparable<Fan>
 		return 0;
 	    }
     }
-    
+
+    /**
+     *The toString method returns some information about the fan
+     *
+     *@return String This is the information about the fan
+     */
     public String toString()
     {
 	return "This Fan:\n\t ID\t" + getFanID() + "\n\tLikes:\t"+getFav()+"\n\tHas in Wallet:\t"+getWallet()+"\n\tHappiness rating:\t"+ getHappiness();
     }
   
     /**
-     * This is the only constructor for Fan that sets their favorite Event and how much money they have while assigning them an ID number for rating purposes
-     * 
+     *This is the only constructor for Fan that sets their favorite Event and how much money they have while assigning them an ID number for rating purposes
+     *
+     *@param inFav This is the Fan's favorite venue type
      */
     public Fan(Venue.VenueType inFav)
     {
@@ -66,18 +72,19 @@ public class Fan implements Comparable<Fan>
     }
   
     /**
-     * getID returns the static counter used for assigning unique ID numbers to each Fan
+     *getID returns the static counter used for assigning unique ID numbers to each Fan
      * 
-     * @return ID the static counter used to assign unique ID numbers to Fans
+     *@return int This is the current counter used for fan's ID
      */
     public static int getID()
     {
 	return ID;
     }
+    
     /**
-     * getFanID returns this Fans' unique ID number 
+     *getFanID returns this Fans' unique ID number 
      * 
-     * @return fanID
+     *@return int This is the fan's ID number
      */
     public int getFanID()
     {
@@ -85,16 +92,17 @@ public class Fan implements Comparable<Fan>
     }
   
     /**
-     * setID assigns a unique ID number to this Fan
+     *setID assigns a unique ID number to this Fan
      * 
-     * @param int inID is a static counter that is used to assign unique ID numbers to each Event
+     *@param inID is a static counter that is used to assign unique ID numbers to each Event
      */
     public void setID(int inID)
     {
 	fanID = inID;
     }
+    
     /**
-     * reject adds to the amount of events this fan was not aloud to enter
+     * reject adds to the amount of events this fan was not allowed to enter
      */
     public void reject()
     {
@@ -113,28 +121,46 @@ public class Fan implements Comparable<Fan>
     /**
      * getHappiness returns how happy this Fan was with the Olymipics
      * 
-     * @return happiness holds the numerical value for how happy this fan was with the Olympics
+     * @return int This is the numerical value for how happy this fan was with the Olympics
      */
     public int getHappiness()
     {
 	return happiness;
     }
-  
+
+    /**
+     *The setFav method sets the fan's favorite venue type to the input
+     *
+     *@param input This is the fan's favorite venue type
+     */
     public void setFav(Venue.VenueType input)
     {
 	fav = input;
     }
-  
+    
+    /**
+     *The getFav method returns the fan's favorite venue type
+     *
+     *@return Venue.VenueType This is the athlete's favorite venue type
+     */
     public Venue.VenueType getFav()
     {
 	return fav;
     }
-  
+
+    /**
+     *The getWallet method returns how much money the fan has left
+     *
+     *@return int This is the amount of money the fan has left
+     */
     public int getWallet()
     {
 	return wallet;
     }
-  
+
+    /**
+     *The setWallet method sets the amount of money the fan has from a random number
+     */
     private void setWallet()
     {
 	Random rng = new Random();

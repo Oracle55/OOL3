@@ -273,7 +273,7 @@ public class Athlete implements Comparable<Athlete>
     /**
      *compareTo takes in an Athlete and compares the  of the two Athletes so see who has the higher 
      *
-     *@param Athlete other This is the Athlete that is being compared to the current one
+     *@param other This is the Athlete that is being compared to the current one
      */
     public int compareTo(Athlete other)
     {
@@ -290,33 +290,63 @@ public class Athlete implements Comparable<Athlete>
 		return 0;
 	    }
     }
-    
+
+
+    /**
+     *The vacated method will increment the number of vacated medals due to cheaters
+     */
     public static void vacated()
     {
 	vacated++;
     }
-    
+
+    /**
+     *The getAwarded method will return the number of awards
+     *
+     *@return int This is the number of awards
+     */
     public static int getAwarded()
     {
 	return awarded;
     }
-    
+
+    /**
+     * The getVacant method will return the number of vacant medals
+     *
+     *@return int This is the number of vacant medals
+     */
     public static int getVacant()
     {
 	return vacated;
     }
-    
+
+    /**
+     * The getNulls method will return the number of medals that were nullified
+     *
+     *@return int This is the number of medals that were nullified
+     */
     public static int getNulls()
     {
 	return nullified;
     }
-    
+
+
+    /**
+     *The setRest method will set how much rest the athlete needs
+     *
+     *@param input This is the amount of rest the athlete needs
+     */
     public void setRest(int input)
     {
 	if (input > 0)
 	    rest = input;
     }
-    
+
+    /**
+     *The rest method will rest the athlete, reducing the amount of rest remaining
+     *
+     *@param input This is the venue the athlete is resting at
+     */
     public void rest(Venue.VenueType input)
     {
 	Random rng = new Random();
@@ -328,12 +358,22 @@ public class Athlete implements Comparable<Athlete>
 	if (rest < 0)
 	    rest = 0;
     }
-    
+
+    /**
+     *The mustRest method will return how much the athlete must rest before they are fully rested
+     *
+     *@return int This is how much longer the athlete needs to rest
+     */
     public int mustRest()
     {
 	return rest;
     }
-    
+
+    /**
+     * The getScore method will return the athlete's score
+     *
+     *@return int This is the athlete's score
+     */
     public int getScore()
     {
 	return score;
@@ -342,43 +382,84 @@ public class Athlete implements Comparable<Athlete>
     /**
      * setScore takes itself and adds the inputed amount to have a running total of the Athletes score used for multistep Event's
      * 
+     *@param input This is the score being added to the current score
      */
     public void setScore(int input)
     {
 	score = score + input;
     }
-    
+
+    /**
+     *The getEndorsements method will return the number of endorsements the athlete has
+     *
+     *@return int This is the number of endorsements the athlete has
+     */
     public int getEndorsements()
     {
 	return endorsements;
     }
-    
+
+    /**
+     *The addEndorsements method will add the amount of endorsements given in the input
+     *
+     *@param input This is the number of endorsements being added
+     */
     public void addEndorsements(int input)
     {
 	if (input + getEndorsements() >=0)
 	    endorsements += input;
     }
-    
+
+    /**
+     *The getCheater method will return whether or not the athlete is a cheater
+     *
+     *@return boolean This is whether or not the athlete is a cheater
+     */
     public boolean getCheater()
     {
 	return cheater;
     }
-    
+
+    /**
+     *The setCheater method will set whether or not the athlete is a cheater
+     *
+     *@param boolean input This is whether or not the athlete is a cheater
+     */
     public void setCheater(boolean input)
     {
 	cheater = input;
     }
-    
+
+    /**
+     *The equals method will check to see if the current athlete is the same as the input
+     *
+     *@param other This is the input that the current athlete is being compared to
+     *
+     *@return boolean This is whether or not the current athlete is equal to the input
+     */
     public boolean equals(Athlete other)
     {
 	return (getNumber() == other.getNumber());
     }
-    
+
+    /**
+     *The toString method will return some information about the athlete
+     *
+     *@return String This is some information about the current athlete
+     */
     public String toString()
     {
 	return "Athlete " + getNumber() + ":\n\tWilling to Cheat:\t"+getCheater()+"\n\tEvents Must Rest:\t"+mustRest()+"\n\tPrefers:\t"+getFav()+" venues\n\tCurrent Stamina:\t"+getStam()+"\n\tSkill Level: " +getSkill()+"\n\tGold Medals:\t"+medals[0]+"\n\tSilver Medals:\t"+medals[1]+"\n\tBronze Medals:\t"+medals[2]+"\n\tEndorsements:\t"+getEndorsements();
     }
-    
+
+    /**
+     *This constructor will take in some inputs and set the corresponding variables to those values
+     *
+     *@param inFav This is the athlete's favorite venue type
+     *@param inStam This is the athlete's stamina
+     *@param inSkill This is the athlete's skill
+     *@param inCheat This is whether or not the athlete is a cheater
+     */
     public Athlete(Venue.VenueType inFav, int inStam, int inSkill, boolean inCheat)
     {
 	setNumber();
@@ -387,27 +468,50 @@ public class Athlete implements Comparable<Athlete>
 	setSkill(inSkill);
 	setCheater(inCheat);
     }
-    
+
+    /**
+     *The setNumber method will set a unique number for the athlete
+     */
     public void setNumber()
     {
 	number = ++count;
     }
-    
+
+    /**
+     *The getNumber method will return the athlete's number
+     *
+     *@return int This is the athlete's number
+     */
     public int getNumber()
     {
 	return number;
     }
-    
+
+    /**
+     *The setFav method will set the athlete's favorite venue type to the input
+     *
+     *@param inFav This is the athlete's venue type
+     */
     public void setFav(Venue.VenueType inFav)
     {
 	fav = inFav;
     }
-    
+
+    /**
+     *The getFav method will return the athlete's favorite venue tpye
+     *
+     *@return Venue.VenueType This is the athlete's favorite venue type
+     */
     public Venue.VenueType getFav()
     {
 	return fav;
     }
-    
+
+    /**
+     *The setStam method will set the athlete's stamina to the input
+     *
+     *@param inStam This is the athlete's stamina
+     */
     private void setStam(int inStam)
     {
 	if (inStam > 100)
@@ -420,7 +524,15 @@ public class Athlete implements Comparable<Athlete>
 	    }
 	stam = inStam;
     }
-    
+
+
+    /**
+     *The changeStam method will adjust the athlete's stamina by the given amount
+     *
+     *@param adjust This is how much the athlete's stamina will be changed by
+     *
+     *@throws AthleteFaintedException This is thrown if the athlete's stamina reaches zero
+     */
     public void changeStam(int adjust)throws AthleteFaintedException
     {
 	if (adjust + stam > 100)
@@ -440,11 +552,21 @@ public class Athlete implements Comparable<Athlete>
 	    }
     }
     
+    /**
+     *The getStam method will return how much stamina the athlete has left
+     *
+     *@return int This is how much stamina the athlete has left
+     */
     public int getStam()
     {
 	return stam;
     }
-    
+
+    /**
+     *The setSkill method will set the athlete's skill level to the input
+     *
+     *@param inSkill This is the athlete's skill
+     */
     private void setSkill(int inSkill)
     {
 	if (inSkill >= 0 && inSkill <= 10)
@@ -452,12 +574,22 @@ public class Athlete implements Comparable<Athlete>
 		skill = inSkill;
 	    }
     }
-    
+
+    /**
+     *The getSkill method will return the athlete's skill level
+     *
+     *@return int This is the athlete's skill
+     */
     public int getSkill()
     {
 	return skill;
     }
-    
+
+    /**
+     *The setMedals method sets the athletes medals to the input
+     *
+     *@param inMedals This array is the number of gold, silver, and bronze medals the athlete has
+     */
     private void setMedals(int[] inMedals)
     {
 	if (inMedals.length == 3 && inMedals[0] >= 0 && inMedals[1] >= 0 && inMedals[2] >= 0)
@@ -465,7 +597,12 @@ public class Athlete implements Comparable<Athlete>
 		medals = inMedals;
 	    }
     }
-    
+
+    /**
+     *The addMedal method will add a medal to the athlete's collection
+     *
+     *@param rank This is the place the athlete took
+     */
     public void addMedal(int rank)
     {
 	if (rank < 4 && rank > 0)
@@ -474,12 +611,20 @@ public class Athlete implements Comparable<Athlete>
 		awarded++;
 	    }
     }
-    
+
+    /**
+     *The getMedals method returns the array of medals the athlete has
+     *
+     *@return int[] This array is the number of gold, silver, and bronze medals the athlete has
+     */
     public int[] getMedals()
     {
 	return medals;
     }
-    
+
+    /**
+     * The strip method will remove all medals from an athlete if they are found to be cheating
+     */
     public void strip()
     {
 	nullified += medals[0] + medals[1] + medals[2];
