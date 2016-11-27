@@ -1,6 +1,6 @@
 /**
  *
- *@author Moses Ilunga - (Will add what I did)
+ *@author Moses Ilunga - Manual Sorting
  *@author Ben Delzer - 
  *@author Christian Hansen - Comparator
  *@author Brock -
