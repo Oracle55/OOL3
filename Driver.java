@@ -548,7 +548,7 @@ public class Driver
             }
         } 
      }
-	ublic static void Recurse(ArrayList<Athlete> list)
+	public static void Recurse(ArrayList<Athlete> list)
     {
 
         int l=list.size();
@@ -658,8 +658,8 @@ public class Driver
             {   
             System.out.println(rOutdoor.get(l));
         }
-	 }
-}
-}
+      }
+    }
+  }
 
-}
+
