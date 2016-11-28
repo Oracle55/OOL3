@@ -38,6 +38,7 @@ public class Driver
         static ArrayList<Athlete> rTrack = new ArrayList<Athlete>();
         static ArrayList<Athlete> rGym = new ArrayList<Athlete>();
         static ArrayList<Athlete> rOutdoor = new ArrayList<Athlete>();
+	static ArrayList<Athlete> athRecurseList = new ArrayList<Athlete>();
   
     public static void main(String[] args) throws FileNotFoundException
     {
@@ -302,7 +303,11 @@ public class Driver
 			f = e.getLoc().removeFan();
 		    }
 	    }
-    Recurse(ath);
+   for (int i=0;i<ath.size();i++)
+	{
+	    athRecurseList.add(ath.get(i));
+	}
+    Recurse(athRecurseList);
 	//Summary
 	String[] metal = {"GOLD","SILVER","BRONZE","TOTAL"};
 	for (int x = 0; x < 4; x++)
@@ -552,8 +557,7 @@ public class Driver
      }
 	public static void Recurse(ArrayList<Athlete> list)
     {
-
-        int l=list.size();
+        int l=list.size()-1;
 
         if (list.get(l).getCheater()==(false))
         {
@@ -590,7 +594,7 @@ public class Driver
         if (list.get(l).getFav().equals("Track"))
         {
             rTrack.add(list.get(l));
-        }
+       }
         if (list.get(l).getFav().equals("Gym"))
         {
             rGym.add(list.get(l));    
@@ -601,7 +605,11 @@ public class Driver
         }
         if(list.size()>0)
         {
-        Recurse(list);
+	    list.remove(l);
+	    if (list.size()>1)
+		{
+		    Recurse(list);
+		}
         }
         if(list.size()==0)
         {
