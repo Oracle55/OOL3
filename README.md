@@ -20,4 +20,4 @@ All - Analysis section
 
 **UML DIAGRAMS!!!!!**
 
-**DUE ON NOVEMBER 28!!!**
+**DUE ON NOVEMBER 28 at 11:59PM!!!**
