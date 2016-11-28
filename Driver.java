@@ -378,6 +378,8 @@ public class Driver
 	System.out.println("\n\nTop 10 least attended Events\n");
 	ArrayList<Event> tmpM = new ArrayList<Event>();
 	tmpM.addAll(event);
+	BubbleSort(tmpM);
+	Collections.reverse(tmpM);
 	for (int y = 0; y < 10; y++)
 	    {
 		System.out.println("\t" + (y+1) + ")\t" + minC(tmpM) +"\n");
