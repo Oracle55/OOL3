@@ -45,18 +45,18 @@ public class Event implements Comparable<Event>
      */
     public int compareTo(Event inEvent)
     {
-	if(this.getPopularity() > inEvent.getPopularity())
-	    {
-		return 1;
-	    }
-	else if(this.getPopularity() < inEvent.getPopularity())
-	    {
-		return -1;
-	    }
-	else
-	    {
-		return 0;
-	    }
+ if(this.getPopularity() > inEvent.getPopularity())
+     {
+  return 1;
+     }
+ else if(this.getPopularity() < inEvent.getPopularity())
+     {
+  return -1;
+     }
+ else
+     {
+  return 0;
+     }
     }
   
     /**
@@ -66,7 +66,7 @@ public class Event implements Comparable<Event>
      */
     public int getFanCount()
     {
-	return fanCount;
+ return fanCount;
     }
   
     /**
@@ -74,7 +74,7 @@ public class Event implements Comparable<Event>
      */
     public void addFanCount()
     {
-	fanCount++;
+ fanCount++;
     }
 
     /**
@@ -84,7 +84,7 @@ public class Event implements Comparable<Event>
      */
     public Venue.VenueType getVenueType()
     {
-	return myType;
+ return myType;
     }
 
     /**
@@ -94,7 +94,7 @@ public class Event implements Comparable<Event>
      */
     public void setVenueType(Venue.VenueType input)
     {
-	myType = input;
+ myType = input;
     }
   
     /**
@@ -104,10 +104,10 @@ public class Event implements Comparable<Event>
      */
     public String toString()
     {
-	String athletes = "\n-----\n";
-	for (Athlete a:aths)
-	    athletes = athletes + a + "\n-----\n";
-	return "Event "+getName()+":\n\tVenue:\n-----\n"+getLoc()+"\n-----\n\tVenue Type:"+getVenueType()+"\n\tPopuluarity:\t"+getPopularity()+"\n\tStatus: "+getStatus()+"\n\tResults:\t"+getResults()+ "\n\tAttendace:\t" + getFanCount() +  "\n\tAtheletes:\n" + athletes;
+ String athletes = "\n-----\n";
+ for (Athlete a:aths)
+     athletes = athletes + a + "\n-----\n";
+ return "Event "+getName()+":\n\tVenue:\n-----\n"+getLoc()+"\n-----\n\tVenue Type:"+getVenueType()+"\n\tPopuluarity:\t"+getPopularity()+"\n\tStatus: "+getStatus()+"\n\tResults:\t"+getResults()+ "\n\tAttendace:\t" + getFanCount() +  "\n\tAtheletes:\n" + athletes;
     }
 
     /**
@@ -122,10 +122,10 @@ public class Event implements Comparable<Event>
     //--Results won't be known until Event concludes
     public Event(String inName, double inPop, Venue.VenueType inVen)
     {
-	setName(inName);
-	setPopularity(inPop);
-	setVenueType(inVen);
-	status = Status.SCHEDULED;
+ setName(inName);
+ setPopularity(inPop);
+ setVenueType(inVen);
+ status = Status.SCHEDULED;
     }
   
     /**
@@ -138,11 +138,11 @@ public class Event implements Comparable<Event>
      */
     public Event(String inName, double inPop, Venue.VenueType inVen, ArrayList<String> inHeat)
     {
-	setName(inName);
-	setPopularity(inPop);
-	setVenueType(inVen);
-	status = Status.SCHEDULED;
-	setHeat(inHeat.size());
+ setName(inName);
+ setPopularity(inPop);
+ setVenueType(inVen);
+ status = Status.SCHEDULED;
+ setHeat(inHeat.size());
     }
   
     /**
@@ -152,7 +152,7 @@ public class Event implements Comparable<Event>
      */
     public void setHeat(int inHeat)
     {
-	heat = inHeat;
+ heat = inHeat;
     }
   
     /**
@@ -162,7 +162,7 @@ public class Event implements Comparable<Event>
      */
     public int getHeat()
     {
-	return heat;
+ return heat;
     }
 
     /**
@@ -172,7 +172,7 @@ public class Event implements Comparable<Event>
      */
     public void setName(String inName)
     {
-	name = inName;
+ name = inName;
     }
 
     /**
@@ -182,7 +182,7 @@ public class Event implements Comparable<Event>
      */
     public String getName()
     {
-	return name;
+ return name;
     }
 
     /**
@@ -192,8 +192,8 @@ public class Event implements Comparable<Event>
      */
     public void setLoc(Venue inLoc)
     {
-	if (inLoc.getType().equals(getVenueType()))
-	    loc = inLoc;
+ if (inLoc.getType().equals(getVenueType()))
+     loc = inLoc;
     }
 
     /**
@@ -203,7 +203,7 @@ public class Event implements Comparable<Event>
      */
     public Venue getLoc()
     {
-	return loc;
+ return loc;
     }
 
     /**
@@ -213,10 +213,10 @@ public class Event implements Comparable<Event>
      */
     public void setPopularity(double inPop)
     {
-	if (inPop >= 0.0 && inPop <= 1.0)
-	    {
-		pop = inPop;
-	    }
+ if (inPop >= 0.0 && inPop <= 1.0)
+     {
+  pop = inPop;
+     }
     }
 
     /**
@@ -226,7 +226,7 @@ public class Event implements Comparable<Event>
      */
     public double getPopularity()
     {
-	return pop;
+ return pop;
     }
 
     /**
@@ -236,11 +236,11 @@ public class Event implements Comparable<Event>
      */
     public void setAthList(ArrayList<Athlete> inAths)
     {
-	if (inAths.size() <= getLoc().getMaxAths())
-	    {
-		aths.clear();
-		aths.addAll(inAths);
-	    }
+ if (inAths.size() <= getLoc().getMaxAths())
+     {
+  aths.clear();
+  aths.addAll(inAths);
+     }
     }
 
     /**
@@ -252,12 +252,12 @@ public class Event implements Comparable<Event>
      */
     public void addAthlete(Athlete inAth) throws TooManyAthletesException
     {
-	if (aths.size() + 1 <= getLoc().getMaxAths())
-	    {
-		aths.add(inAth);
-	    }
-	else 
-	    throw new TooManyAthletesException();
+ if (aths.size() + 1 <= getLoc().getMaxAths())
+     {
+  aths.add(inAth);
+     }
+ else 
+     throw new TooManyAthletesException();
     }
 
     /**
@@ -267,7 +267,7 @@ public class Event implements Comparable<Event>
      */
     public void removeAthlete(Athlete inAth)
     {
-	aths.remove(inAth);
+ aths.remove(inAth);
     }
 
     /**
@@ -277,7 +277,7 @@ public class Event implements Comparable<Event>
      */
     public ArrayList<Athlete> getAthList()
     {
-	return aths;
+ return aths;
     }
 
     /**
@@ -285,14 +285,14 @@ public class Event implements Comparable<Event>
      */
     private void advanceStatus()
     {
-	if(status == Status.SCHEDULED)
-	    {
-		status = Status.ACTIVE;
-	    }
-	else if (status == Status.ACTIVE)
-	    {
-		status = Status.COMPLETED;
-	    }
+ if(status == Status.SCHEDULED)
+     {
+  status = Status.ACTIVE;
+     }
+ else if (status == Status.ACTIVE)
+     {
+  status = Status.COMPLETED;
+     }
     }
 
     /**
@@ -302,7 +302,7 @@ public class Event implements Comparable<Event>
      */
     public Status getStatus()
     {
-	return status;
+ return status;
     }
 
 
@@ -313,7 +313,7 @@ public class Event implements Comparable<Event>
      */
     private void setResults(String inResults)
     {
-	results = inResults;
+ results = inResults;
     }
 
     /**
@@ -323,7 +323,7 @@ public class Event implements Comparable<Event>
      */
     public String getResults()
     {
-	return results;
+ return results;
     }
   
     /**
@@ -335,175 +335,175 @@ public class Event implements Comparable<Event>
      */
     public boolean runEvent() throws CaughtCheatingException, NotEnoughAthletesException
     {
-	if (aths.size() < 3)
-	    {
-		throw new NotEnoughAthletesException();
+ if (aths.size() < 3)
+     {
+  throw new NotEnoughAthletesException();
       
-	    }
+     }
     
-	//advance status
-	advanceStatus();
-	Random rng = new Random();
-	//Clone Athlete List so I have a copy I can play with
-	ArrayList<Athlete> tmp = new ArrayList<Athlete>();
-	ArrayList<Athlete> cheaters = new ArrayList<Athlete>();
-	ArrayList<Athlete> fainters = new ArrayList<Athlete>();
-	ArrayList<Athlete> skippers = new ArrayList<Athlete>();
+ //advance status
+ advanceStatus();
+ Random rng = new Random();
+ //Clone Athlete List so I have a copy I can play with
+ ArrayList<Athlete> tmp = new ArrayList<Athlete>();
+ ArrayList<Athlete> cheaters = new ArrayList<Athlete>();
+ ArrayList<Athlete> fainters = new ArrayList<Athlete>();
+ ArrayList<Athlete> skippers = new ArrayList<Athlete>();
     
-	do
-	    {
-		for (Athlete t : aths)
-		    {
-			try
-			    {
-				if (getVenueType().equals(t.getFav()))
-				    {
-					int rnd = ((rng.nextInt(10) + 1) * -1);
-					if(t.getStam() + rnd <= 0 && rng.nextInt(9) + 1 < t.getSkill())
-					    {
-						skippers.add(t);
-					    }
-					else
-					    {
-						t.changeStam(rnd);
-					    }
-				    }
-				else
-				    {
-					int rnd = ((rng.nextInt(16) + 5) * -1);
-					if(t.getStam() + rnd <= 0 && rng.nextInt(9) + 1 < t.getSkill())
-					    {
-						skippers.add(t);
-					    }
-					else
-					    {
-						t.changeStam(rnd);
-					    }
-				    }
+ do
+     {
+  for (Athlete t : aths)
+      {
+   try
+       {
+    if (getVenueType().equals(t.getFav()))
+        {
+     int rnd = ((rng.nextInt(10) + 1) * -1);
+     if(t.getStam() + rnd <= 0 && rng.nextInt(9) + 1 < t.getSkill())
+         {
+      skippers.add(t);
+         }
+     else
+         {
+      t.changeStam(rnd);
+         }
+        }
+    else
+        {
+     int rnd = ((rng.nextInt(16) + 5) * -1);
+     if(t.getStam() + rnd <= 0 && rng.nextInt(9) + 1 < t.getSkill())
+         {
+      skippers.add(t);
+         }
+     else
+         {
+      t.changeStam(rnd);
+         }
+        }
           
-				if (t.getCheater())
-				    {
-					if ( rng.nextInt(20)==0)
-					    {
-						throw new CaughtCheatingException();
-					    }
-					else
-					    {
-						t.setScore(rng.nextInt(16) + 5 + t.getSkill());
-					    }
-				    }
-				else
-				    t.setScore(rng.nextInt(20) + 1 + t.getSkill());
+    if (t.getCheater())
+        {
+     if ( rng.nextInt(20)==0)
+         {
+      throw new CaughtCheatingException();
+         }
+     else
+         {
+      t.setScore(rng.nextInt(16) + 5 + t.getSkill());
+         }
+        }
+    else
+        t.setScore(rng.nextInt(20) + 1 + t.getSkill());
           
-				if (t.getStam() > 0)
-				    tmp.add(t);
-			    }
-			catch (CaughtCheatingException e)
-			    {
-				t.strip();
-				cheaters.add(t);
-			    }
-			catch (AthleteFaintedException e)
-			    {
-				fainters.add(t);
-			    }
-		    }
+    if (t.getStam() > 0)
+        tmp.add(t);
+       }
+   catch (CaughtCheatingException e)
+       {
+    t.strip();
+    cheaters.add(t);
+       }
+   catch (AthleteFaintedException e)
+       {
+    fainters.add(t);
+       }
+      }
       
-		for (Athlete c : cheaters)
-		    tmp.remove(c);
-		for (Athlete f : fainters)
-		    tmp.remove(f);
-		for (Athlete s : skippers)
-		    tmp.remove(s);
-		count++;
+  for (Athlete c : cheaters)
+      tmp.remove(c);
+  for (Athlete f : fainters)
+      tmp.remove(f);
+  for (Athlete s : skippers)
+      tmp.remove(s);
+  count++;
       
-		while (tmp.size() > 5)
-		    {
-			tmp.remove(tmp.size()-1);
-			System.out.println("derpEvent1");
-		    }
+  while (tmp.size() > 5)
+      {
+   tmp.remove(tmp.size()-1);
+   System.out.println("derpEvent1");
+      }
       
-		int excS=0;
-		while (tmp.size() < 5 && excS==0)
-		    {
+  int excS=0;
+  while (tmp.size() < 5 && excS==0)
+      {
         
-			if(skippers.size() > 0)
-			    {
-				tmp.add(skippers.remove(0));
-			    }
-			else
-			    {
-				excS=1;
-			    }
-		    }
+   if(skippers.size() > 0)
+       {
+    tmp.add(skippers.remove(0));
+       }
+   else
+       {
+    excS=1;
+       }
+      }
       
-		int excF=0;
-		while (tmp.size() < 5 && excF==0)
-		    {
+  int excF=0;
+  while (tmp.size() < 5 && excF==0)
+      {
         
-			if(fainters.size() > 0)
-			    {
-				tmp.add(fainters.remove(0));
-			    }
-			else
-			    {
-				excF=1;
-			    }
-		    }
-		aths = tmp;
-	    }
-	while(count <= getHeat());
+   if(fainters.size() > 0)
+       {
+    tmp.add(fainters.remove(0));
+       }
+   else
+       {
+    excF=1;
+       }
+      }
+  aths = tmp;
+     }
+ while(count <= getHeat());
     
-	setResults("Results:\n");
-	boolean noMedal = false;
-	Athlete placed = max(tmp);
-	if (placed != null)
-	    {
-		setResults(getResults() + "\t\tGOLD:\t#" + placed.getNumber() + "\n");
-		placed.addMedal(1);
-		if (getLoc().getCurrFans() > 0)
-		    placed.addEndorsements((int)(getPopularity() * (rng.nextInt(getLoc().getCurrFans()-1) + 2)));
-		tmp.remove(placed);
-	    }
-	else 
-	    {
-		Athlete.vacated();
-		noMedal = true;
-	    }
-	placed = max(tmp);
-	if (placed != null)
-	    {
-		setResults(getResults() + "\t\tSILVER:\t#" + placed.getNumber() + "\n");
-		placed.addMedal(2);
-		if (getLoc().getCurrFans() > 0)
-		    placed.addEndorsements((int)(getPopularity() * (rng.nextInt(getLoc().getCurrFans()-1) + 2) * .5));
-		tmp.remove(placed);
-	    }
-	else 
-	    {
-		Athlete.vacated();
-		noMedal = true;
-	    }
-	placed = max(tmp);
-	if (placed != null)
-	    {
-		setResults(getResults() + "\t\tBRONZE:\t#" + placed.getNumber() + "\n");
-		placed.addMedal(3);
-		if (getLoc().getCurrFans() > 0)
-		    placed.addEndorsements((int)(getPopularity() * (rng.nextInt(getLoc().getCurrFans()-1) + 2) * .25));
-	    }
-	else 
-	    {
-		Athlete.vacated();
-		noMedal = true;
-	    }
-	//advance status
-	advanceStatus();
-	if (noMedal)
-	    throw new NotEnoughAthletesException(cheaters);
-	if (cheaters.size() > 0)
-	    throw new CaughtCheatingException(cheaters);
-	return true;
+ setResults("Results:\n");
+ boolean noMedal = false;
+ Athlete placed = max(tmp);
+ if (placed != null)
+     {
+  setResults(getResults() + "\t\tGOLD:\t#" + placed.getNumber() + "\n");
+  placed.addMedal(1);
+  if (getLoc().getCurrFans() > 0)
+      placed.addEndorsements((int)(getPopularity() * (rng.nextInt(getLoc().getCurrFans()-1) + 2)));
+  tmp.remove(placed);
+     }
+ else 
+     {
+  Athlete.vacated();
+  noMedal = true;
+     }
+ placed = max(tmp);
+ if (placed != null)
+     {
+  setResults(getResults() + "\t\tSILVER:\t#" + placed.getNumber() + "\n");
+  placed.addMedal(2);
+  if (getLoc().getCurrFans() > 0)
+      placed.addEndorsements((int)(getPopularity() * (rng.nextInt(getLoc().getCurrFans()-1) + 2) * .5));
+  tmp.remove(placed);
+     }
+ else 
+     {
+  Athlete.vacated();
+  noMedal = true;
+     }
+ placed = max(tmp);
+ if (placed != null)
+     {
+  setResults(getResults() + "\t\tBRONZE:\t#" + placed.getNumber() + "\n");
+  placed.addMedal(3);
+  if (getLoc().getCurrFans() > 0)
+      placed.addEndorsements((int)(getPopularity() * (rng.nextInt(getLoc().getCurrFans()-1) + 2) * .25));
+     }
+ else 
+     {
+  Athlete.vacated();
+  noMedal = true;
+     }
+ //advance status
+ advanceStatus();
+ if (noMedal)
+     throw new NotEnoughAthletesException(cheaters);
+ if (cheaters.size() > 0)
+     throw new CaughtCheatingException(cheaters);
+ return true;
     }
 
     /**
@@ -513,21 +513,21 @@ public class Event implements Comparable<Event>
      */
     private Athlete max(ArrayList<Athlete> list)
     {
-	if (list.size() == 0)
-	    return null;
-	Athlete max = list.get(0);
-	for (Athlete a : list)
-	    {
-		if (max.getScore() < a.getScore())
-		    max = a;
-	    }
+ if (list.size() == 0)
+     return null;
+ Athlete max = list.get(0);
+ for (Athlete a : list)
+     {
+  if (max.getScore() < a.getScore())
+      max = a;
+     }
     
-	for(Athlete t: aths)
-	    {
-		t.setScore(-(t.getScore()));
-	    }
+ for(Athlete t: aths)
+     {
+  t.setScore(-(t.getScore()));
+     }
     
-	return max;
+ return max;
     }
   
 }
