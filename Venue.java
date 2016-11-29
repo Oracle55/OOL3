@@ -24,18 +24,18 @@ public class Venue implements Comparable<Venue>
      */
     public int compareTo(Venue other)
     {
-	if(this.getMaxFans() > other.getMaxFans())
-	    {
-		return 1;
-	    }
-	else if(this.getMaxFans() < other.getMaxFans())
-	    {
-		return -1;
-	    }
-	else
-	    {
-		return 0;
-	    }
+ if(this.getMaxFans() > other.getMaxFans())
+     {
+  return 1;
+     }
+ else if(this.getMaxFans() < other.getMaxFans())
+     {
+  return -1;
+     }
+ else
+     {
+  return 0;
+     }
     }
 
     /**
@@ -45,7 +45,7 @@ public class Venue implements Comparable<Venue>
      */
     public String toString()
     {
-	return "Venue "+getName()+":\n\tVenueType:\t"+getType()+"\n\tMax Athletes:\t"+getMaxAths()+"\n\tMaxFans:\t"+getMaxFans()+"\n\tCurrent Fans:\t"+getCurrFans();
+ return "Venue "+getName()+":\n\tVenueType:\t"+getType()+"\n\tMax Athletes:\t"+getMaxAths()+"\n\tMaxFans:\t"+getMaxFans();
     }
 
     /**
@@ -59,10 +59,10 @@ public class Venue implements Comparable<Venue>
     //Venues probably don't have fans when created, so left that attribute out.
     public Venue(String inName, VenueType inType, int inMaxA, int inMaxFans)
     {
-	setName(inName);
-	setType(inType);
-	setMaxAths(inMaxA);
-	setMaxFans(inMaxFans);
+ setName(inName);
+ setType(inType);
+ setMaxAths(inMaxA);
+ setMaxFans(inMaxFans);
     }
 
     /**
@@ -72,7 +72,7 @@ public class Venue implements Comparable<Venue>
      */
     public void setName(String inName)
     {
-	name = inName;
+ name = inName;
     }
 
     /**
@@ -82,7 +82,7 @@ public class Venue implements Comparable<Venue>
      */
     public String getName()
     {
-	return name;
+ return name;
     }
 
     /**
@@ -93,7 +93,7 @@ public class Venue implements Comparable<Venue>
     //I suppose a venue could be remodelled, so leaving this public
     public void setType(VenueType inType)
     {
-	type = inType;
+ type = inType;
     }
 
     /**
@@ -103,7 +103,7 @@ public class Venue implements Comparable<Venue>
      */
     public VenueType getType()
     {
-	return type;
+ return type;
     }
 
     /**
@@ -113,10 +113,10 @@ public class Venue implements Comparable<Venue>
      */
     public void setMaxAths(int inMax)
     {
-	if (inMax >= 1)
-	    {
-		maxA = inMax;
-	    }
+ if (inMax >= 1)
+     {
+  maxA = inMax;
+     }
     }
 
     /**
@@ -126,7 +126,7 @@ public class Venue implements Comparable<Venue>
      */
     public int getMaxAths()
     {
-	return maxA;
+ return maxA;
     }
 
     /**
@@ -136,11 +136,11 @@ public class Venue implements Comparable<Venue>
      */
     public void setMaxFans(int inMax)
     {
-	//Check that the new max won't kill off any fans currently in the Venue
-	if (inMax >= getCurrFans())
-	    {
-		maxFans = inMax;
-	    }
+ //Check that the new max won't kill off any fans currently in the Venue
+ if (inMax >= getCurrFans())
+     {
+  maxFans = inMax;
+     }
     }
 
     /**
@@ -150,7 +150,7 @@ public class Venue implements Comparable<Venue>
      */
     public int getMaxFans()
     {
-	return maxFans;
+ return maxFans;
     }
   
     /**
@@ -162,13 +162,13 @@ public class Venue implements Comparable<Venue>
      */
     public void addFan(Fan inFan) throws TooManyFansException
     {
-	if (getCurrFans() >= maxFans)
-	    {
-		inFan.reject();
-		throw new TooManyFansException();
-	    }
-	else
-	    fans.add(inFan);
+ if (getCurrFans() >= maxFans)
+     {
+  inFan.reject();
+  throw new TooManyFansException();
+     }
+ else
+     fans.add(inFan);
     }
 
     /**
@@ -178,15 +178,15 @@ public class Venue implements Comparable<Venue>
      */
     public Fan removeFan()
     {
-	if (getCurrFans() <= 0)
-	    {
-		System.out.println("More fans trying to leave the Venue than were actually inside the Venue!");
-		return null;
-	    }
-	else
-	    {
-		return fans.remove(0);
-	    }
+ if (getCurrFans() <= 0)
+     {
+  System.out.println("More fans trying to leave the Venue than were actually inside the Venue!");
+  return null;
+     }
+ else
+     {
+  return fans.remove(0);
+     }
     }
 
     /**
@@ -196,6 +196,6 @@ public class Venue implements Comparable<Venue>
      */
     public int getCurrFans()
     {
-	return fans.size();
+ return fans.size();
     }
 }
